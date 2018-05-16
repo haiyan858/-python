@@ -39,3 +39,18 @@ else:
             print('Students:', Student.count)
             print('测试通过!')
 
+
+class Student(object):
+    count = 0
+    # 【0】Student类的变量
+    def __init__(self):
+        count = 1              # 【1】init方法内部的一个临时变量
+        self.count = 1         # 【2】创建实例后变为 实例的一个参数/变量
+        self.count = count + 1 #  相当于【2】=【1】+ 1，所以最后【2】 == 2
+        Student.count = 3      # 【3】Student类的变量， 与最上边的【0】是同一个东西
+
+a = Student()
+print(a.count, Student.count)  # 输出结果为 2 3
+
+# 总结一下：
+# 四个count：【0】和【3】等价且为类的变量/参数，【1】是临时变量，【2】是实例的参数
